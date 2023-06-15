@@ -4,9 +4,9 @@ services:
     image: 'redis:alpine'
     ports:
       - '6379:6379'
-  web1:
+  web:
     restart: on-failure
-    build: ./web1
+    build: ./web
     ports:
       - '81:5000'
   nginx:
