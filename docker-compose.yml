@@ -4,14 +4,18 @@ services:
     image: 'redis:alpine'
     ports:
       - '6379:6379'
+    networks: test
   web:
     restart: on-failure
     build: ./web
-    ports:
-      - '5000:5000'
+    networks: test
   nginx:
     build: ./nginx
     ports:
     - '80:80'
+    networks: test
     depends_on:
     - web
+networks:
+  test:
+    
